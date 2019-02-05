@@ -1,11 +1,9 @@
 {
     padding: 0px;
     margin: 0px;
+    
 }
 
-body{
-    overflow: auto;
-}
 .header
 {
     background-color: #3b5998;
@@ -23,7 +21,7 @@ body{
     float: left;
     width: 200px;
     height: 60px;
-    margin-top: 1px
+    margin-top: 12px;
 }
 .registration
 {
@@ -173,4 +171,6 @@ p a
 .forgotAccount{
     float: right;
     margin-right: 0px;  
+    margin-left: 50px;
+    margin-top: 5px;
 }
