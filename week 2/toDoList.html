@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=z, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo List by Dariya Baibolatova</title>
+    <link rel="stylesheet" href="style.css" type = "text/css">
+</head>
+<body>
+    <h2 class = "header">ToDo List</h2>
+
+    <div class = "info">
+        <h1 id = "name">ToDo List</h1>
+        <input type="text" id = "inputID" placeholder="New Task">
+        <span class = "add" onclick= "newItemAdd()">ADD</span>
+        <div class = "list">
+            <ul id = "ulist">
+                <li>First item</li>
+                <li class = "done">Second item</li>
+                <li>Third item</li>
+            </ul>
+        </div>
+    </div>
+
+<script>
+
+//Добавление новых пунктов в список
+
+function newItemAdd() {
+  var lists = document.createElement("li");
+  var val = document.getElementById("inputID").value;
+  var t = document.createTextNode(val);
+  lists.appendChild(t);
+  if (val === '') {
+    alert("Try once more. You should enter something!");
+  } else {
+    document.getElementById("ulist").appendChild(lists);
+  }
+  document.getElementById("inputID").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("delete");
+  span.className = "close";
+  span.appendChild(txt);
+  lists.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var curDiv = this.parentElement;
+      curDiv.style.display = "none";
+    }
+  }
+}
+
+//Добавление кнопки close
+
+    var ListOfNodes = document.getElementsByTagName("LI");
+    var i;
+    for (i = 0; i < ListOfNodes.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("delete"); 
+        span.className = "close";
+        span.appendChild(txt);
+        ListOfNodes[i].appendChild(span);
+}
+
+//Удаление из списка
+
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var curDiv = this.parentElement;
+    curDiv.style.display = "none";
+  }
+}
+
+//Помечаем как сделанное
+
+var listOfItems = document.querySelector('ul');
+listOfItems.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('done');
+  }
+}, false);
+
+
+</script>    
+</body>
+</html>

@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    color: grey;
+    background-color: black;
+    height: 50px;
+    width: 100%;
+    text-align: left;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+
+.info{
+    text-align: left;
+    margin: 100px 0px 0px 400px;
+}
+
+#name{
+    color: black;
+}
+
+#inputID{
+    height: 30px;
+    width: 40%;
+    margin-top: 15px;
+    margin-left: 40px;
+}
+
+.add{
+    margin-left: 20px;
+    background-color: steelblue;
+    color: white;
+    height: 400px;
+    width: 40px;
+    border: solid steelblue;
+}
+
+.add:hover{
+    background-color: orchid;
+    border: solid orchid;
+    height: 100px;
+}
+
+.list{
+    border: solid whitesmoke;
+    margin-top: 20px;
+    width: 60%;
+}
+
+ul li{
+    padding: 10px 10px;
+    border: solid whitesmoke;
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+ul li:hover {
+    background: #ddd;
+  }
+
+ul li.done {
+    background: #888;
+    color: #fff;
+    text-decoration: line-through; 
+}
+
+  
+ul li.done::before {
+  content: "\270E";
+  color: white;
+  padding: 0 5px 0 5px;
+  margin-right: 5px;
+  height: 15px;
+  width: 5px;
+}
+
+.close {
+    position: absolute;
+    padding-left: 300px;
+    padding-right: 15px;
+    width: 10px;
+    text-align: right;
+  }
+  
+  .close:hover {
+    color: white;
+  }
