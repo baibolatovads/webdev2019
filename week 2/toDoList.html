@@ -25,7 +25,7 @@
 
 <script>
 
-//Добавление новых пунктов в список
+//Dobavlenie novyh punktov
 
 function newItemAdd() {
   var lists = document.createElement("li");
@@ -53,7 +53,7 @@ function newItemAdd() {
   }
 }
 
-//Добавление кнопки close
+//Dobavlenie knopki delete
 
     var ListOfNodes = document.getElementsByTagName("LI");
     var i;
@@ -65,7 +65,7 @@ function newItemAdd() {
         ListOfNodes[i].appendChild(span);
 }
 
-//Удаление из списка
+//Udaleniye elementa
 
 var close = document.getElementsByClassName("close");
 var i;
@@ -76,7 +76,7 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-//Помечаем как сделанное
+//Dobavlenie done
 
 var listOfItems = document.querySelector('ul');
 listOfItems.addEventListener('click', function(ev) {
