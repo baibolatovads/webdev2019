@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<ul>
+    {% for task in TaskList %}
+        <li>{{task.name}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

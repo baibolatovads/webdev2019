@@ -1,0 +1,7 @@
+# Environments
+.env
+/include/
+/Lib/
+/Scripts/
+/tcl/
+LICENSE.txt
