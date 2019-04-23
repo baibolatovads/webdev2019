@@ -1,0 +1,40 @@
+CREATE TaskLists
+<div>
+  <input type="text" [(ngModel)]="name" />
+  <button (click) = "createTaskList()" >Create</button>
+</div>
+
+
+
+TaskLists
+
+<ng-container *ngIf="!loading">
+Loading...
+</ng-container>
+
+<ng-container *ngIf ="loading">
+  <div>
+      <div *ngFor = "let l of tasklist">
+          <span (click) = "getTasks(l)" >
+            <input type="text" [(ngModel)] = "l.name">  
+          </span>
+          <span style="color: brown; font-size: 20px" (click) = "deleteTaskList(l)" > DELETE</span>
+          <span style="color: green; font-size: 20px" (click) = "updateTaskList(l)" > EDIT</span>
+          <span style="color:blueviolet;font-size: 20px" (click)="getTasks(l)"> TASKS</span>
+          
+        </div>
+  </div> 
+</ng-container>
+  
+<br>
+
+Tasks:
+
+<div>
+  <div *ngFor = "let p of tasks"> 
+    <div><span>ID:</span> {{p.id}}</div>
+    <div><span>NAME:</span> {{p.name}}</div>
+    <div><span>CREATED ON:</span> {{p.created_at}}</div>
+    <div><span>DUE ON:</span> {{p.due_on}}</div>
+  </div>
+</div>

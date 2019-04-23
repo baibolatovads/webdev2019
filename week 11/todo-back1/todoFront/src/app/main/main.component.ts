@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProviderService } from './services/provider.service';
-import { ITaskList } from './models/todo';
-import {ITask} from './models/todo';
+import { ITaskList } from './models//todo';
+import {ITask} from './models//todo';
 
 @Component({
   selector: 'app-main',
@@ -11,7 +11,7 @@ import {ITask} from './models/todo';
 export class MainComponent implements OnInit {
 
   public tasklist: ITaskList[]=[];
-  public loading = false;
+  public loading = true;
   public selected;
 
   public tasks: ITask[]=[];
@@ -58,8 +58,9 @@ export class MainComponent implements OnInit {
     this.provider.createTaskList(this.name).then( res => {
       this.name = '';
       this.tasklist.push(res);
-      })
+      }).catch(error => (console.log(error)))
     }
+
   }
 
 }

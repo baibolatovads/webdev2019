@@ -19,6 +19,7 @@ export class MainService {
   }
 
   post(uri: string, body: any): Promise<any> {
+    console.log('got to post', body);
     body = this.normalBody(body);
     return this.http.post(uri, body).toPromise().then(res => res);
   }

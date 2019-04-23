@@ -7,9 +7,7 @@ class TaskListSerializer(serializers.Serializer):
     name = serializers.CharField(required=True)
 
     def create(self, validated_data):
-        task_list = TaskList(**validated_data)
-        task_list.save()
-        return task_list
+        return TaskList.objects.create(**validated_data)
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
