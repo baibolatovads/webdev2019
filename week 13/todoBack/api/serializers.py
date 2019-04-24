@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import TaskList, Task
-
+from django.contrib.auth.models import User
 
 class TaskListSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -36,3 +36,9 @@ class TasksSerializer(serializers.Serializer):
         instance.name = validated_data.get('name', instance.name)
         instance.save()
         return instance
+
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email')

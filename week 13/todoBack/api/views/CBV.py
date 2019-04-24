@@ -82,11 +82,11 @@ class task_list_tasks_detail(APIView):
                     return Response(serializer.data)
         return task_list
 
-    def post(self, request):
+    def post(self, request, pk):
         serializer = TasksSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=200)
+            return Response(serializer.data, status=201)
         return Response(serializer.errors)
 
     def delete(self, request, pk1):
