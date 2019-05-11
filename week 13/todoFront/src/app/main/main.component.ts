@@ -12,6 +12,8 @@ export class MainComponent implements OnInit {
 
   public tasklist: ITaskList[]=[];
   public taskList_current: ITaskList;
+  public task_listid: any='';
+  public task_name: any='';
   public loading = false;
   public search_name='';  
   public search_list='';
@@ -71,6 +73,15 @@ export class MainComponent implements OnInit {
       this.name = '';
       this.tasklist.push(res);
       })
+    }
+  }
+
+ createTask(){
+    if(this.task_name!==''){
+      this.provider.createTask(this.task_name, this.task_listid).then(res=>{
+        this.tasks.push(res);
+        console.log(this.task_name+ ' created');
+      });
     }
   }
 

@@ -68,3 +68,10 @@ class TaskListSerializer2(serializers.ModelSerializer):
         model = TaskList
         fields = ('id', 'name', 'created_by', 'tasks')
 
+    def create(self, validated_data):
+        tasks = validated_data.pop('tasks')
+        task_list = TaskList.objects.create(**validated_data)
+        arr = [Task(task_list=task_List, **task) for task in tasks]
+        Task.objects.bulk_create(arr)
+        return task_List
+

@@ -44,6 +44,14 @@ export class ProviderService extends MainService{
          name: name
       });
     }
+
+    createTask(name: any, id: number): Promise<ITask>{
+      return this.post(`http://localhost:8000/task_lists/${id}/tasks/`, {
+      name: name,
+      task_list: id
+    });
+  }
+
     auth(login: any, password: any): Promise<IAuthResponse> {
       return this.post(`http://localhost:8000/login/`, {
         username: login,

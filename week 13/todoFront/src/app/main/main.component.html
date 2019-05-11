@@ -37,11 +37,24 @@
     </div> 
   </ng-container>
     
-  <br>
 
+
+ <div>
+    <br>
+      <span style="color: blue" (click)="createTask()">Create Task
+        <br>
+          <input type="text" [(ngModel)]="task_name" placeholder="name"/>
+          <input type="text" [(ngModel)]="task_listid" placeholder="task_listid"/>
+
+      </span>
+      
+</div>
+
+<br>
   Tasks:
 
   <div>
+    <br>
     <div *ngFor = "let p of tasks"> 
       <div><span>ID:</span> {{p.id}}</div>
       <div><span>NAME:</span> {{p.name}}</div>
