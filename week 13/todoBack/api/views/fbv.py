@@ -46,7 +46,7 @@ def task_list_tasks(request, pk):
     except TaskList.DoesNotExist as e:
         return Response({'error': str(e)})
 
-    tasks = task_list.task_set.all()
+    tasks = task_list.tasks.all()
     serializer = TasksSerializer(tasks, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -79,7 +79,7 @@ def task_list_tasks_detail(request, pk, ik):
                 return Response({}, status=204)
 
     elif request.method == 'PUT':
-        tasks = task_list.task_set.all()
+        tasks = task_list.tasks.all()
         for t in tasks:
             if t.id == pk:
                 serializer = TasksSerializer(instance=t, data=request.data)

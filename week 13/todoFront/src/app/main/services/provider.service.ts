@@ -14,8 +14,15 @@ export class ProviderService extends MainService{
   }
 
 
+    getTasksByName(id:number, name:string): Promise<ITask[]>{
+      return this.get(`http://localhost:8000/task_lists/${id}/tasks/?name=${name}/`, {id, name});
+    }
+
+    searchListByName(name:string): Promise<ITask[]>{
+      return this.get(`http://localhost:8000/task_lists/?search=${name}/`, {name})
+    }
     getTaskList(): Promise<ITaskList[]>{
-      return this.get('http://localhost:8000/task_lists/',{});
+      return this.get(`http://localhost:8000/task_lists/`,{});
     }
 
     getTasks(id:number){

@@ -11,8 +11,10 @@ import {ITask} from './models/todo';
 export class MainComponent implements OnInit {
 
   public tasklist: ITaskList[]=[];
+  public taskList_current: ITaskList;
   public loading = false;
-  
+  public search_name='';  
+  public search_list='';
   public tasks: ITask[]=[]; 
 
   public name: any='';
@@ -70,6 +72,19 @@ export class MainComponent implements OnInit {
       this.tasklist.push(res);
       })
     }
+  }
+
+  filter1(){
+    this.provider.getTasksByName(this.taskList_current.id, this.search_name).then(r=>{
+      this.tasks=r;
+      console.log(this.taskList_current.id);
+    });
+  }
+
+  searchList(){
+    this.provider.searchListByName(this.search_list).then(res=>{
+      this.tasklist=res;
+    });
   }
 
   auth() {

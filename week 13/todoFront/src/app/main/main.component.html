@@ -21,6 +21,10 @@
 
   <ng-container *ngIf ="loading">
     <div>
+      
+       <input type="text" [(ngModel)]="search_name" placeholder="name"><button (click)="filter1()">Filter</button>
+        <input type="text" [(ngModel)]="search_list" placeholder="name"><button (click)="searchList()">Search</button>
+
         <div *ngFor = "let l of tasklist">
             <span (click) = "getTasks(l)" >
               <input type="text" [(ngModel)] = "l.name">  
